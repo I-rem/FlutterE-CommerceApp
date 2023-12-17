@@ -47,9 +47,9 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyB5u5sLaSOofjG-5rwi8e_p0NoQFo6ZuPw',
     appId: '1:55065289851:web:e05203ae430122701beede',
     messagingSenderId: '55065289851',
-    projectId: 'easyshopping-ce06a',
-    authDomain: 'easyshopping-ce06a.firebaseapp.com',
-    storageBucket: 'easyshopping-ce06a.appspot.com',
+    projectId: 'itshop-ce06a',
+    authDomain: 'itshop-ce06a.firebaseapp.com',
+    storageBucket: 'itshop-ce06a.appspot.com',
     measurementId: 'G-8M88P4LE0P',
   );
 
@@ -57,16 +57,16 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyCgmn9NAC8y-sl7GPCFzO9Xu4p0ocqpzro',
     appId: '1:55065289851:android:23db8df47c5bdc8f1beede',
     messagingSenderId: '55065289851',
-    projectId: 'easyshopping-ce06a',
-    storageBucket: 'easyshopping-ce06a.appspot.com',
+    projectId: 'itshop-ce06a',
+    storageBucket: 'itshop-ce06a.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCW2p3OscjoAAUcDhBvX6sib79TrAUOhQ0',
     appId: '1:55065289851:ios:1dc678310d94ba1e1beede',
     messagingSenderId: '55065289851',
-    projectId: 'easyshopping-ce06a',
-    storageBucket: 'easyshopping-ce06a.appspot.com',
+    projectId: 'itshop-ce06a',
+    storageBucket: 'itshop-ce06a.appspot.com',
     iosBundleId: 'com.example.eComm',
   );
 
@@ -74,8 +74,8 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyCW2p3OscjoAAUcDhBvX6sib79TrAUOhQ0',
     appId: '1:55065289851:ios:59e22be67892ce811beede',
     messagingSenderId: '55065289851',
-    projectId: 'easyshopping-ce06a',
-    storageBucket: 'easyshopping-ce06a.appspot.com',
+    projectId: 'itshop-ce06a',
+    storageBucket: 'itshop-ce06a.appspot.com',
     iosBundleId: 'com.example.eComm.RunnerTests',
   );
 }

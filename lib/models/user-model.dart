@@ -50,6 +50,7 @@ class UserModel {
     };
   }
 
+  // Create a UserModel instance from a JSON map
   factory UserModel.fromMap(Map<String, dynamic> json) {
     return UserModel(
       uId: json['uId'],
