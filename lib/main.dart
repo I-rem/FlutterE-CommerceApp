@@ -1,19 +1,34 @@
+import 'package:e_comm/screens/auth-ui/splash-screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-void main() {
-  runApp (const App());
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
+
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyApp());
 }
-class App extends StatelessWidget {
-  const App({super.key});
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
-  Widget build (BuildContext context) {
-    return MaterialApp (
-      themeMode: ThemeMode.system,
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Our Demo',
       theme: ThemeData(
-          textTheme: TextTheme (
-              bodyLarge: TextStyle(fontSize: 14, color: Colors.green)
-          ) // TextTheme
-      ), // ThemeData
-      darkTheme: ThemeData(),
-    ); // MaterialApp
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigoAccent),
+        useMaterial3: true,
+      ),
+      home: const SplashScreen(),
+      builder: EasyLoading.init(),
+    );
   }
 }
