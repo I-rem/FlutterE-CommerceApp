@@ -1,9 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
-
 import 'package:e_comm/controllers/sign-in-controller.dart';
 import 'package:e_comm/screens/admin-panel/admin-main-screen.dart';
 import 'package:e_comm/screens/auth-ui/sign-up-screen.dart';
-import 'package:e_comm/screens/user-panel/main-screen.dart';
 import 'package:e_comm/utils/app-constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +9,11 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../controllers/get-user-data-controller.dart';
+import '../user-panel/main-screen.dart';
 import 'forget-password-screen.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -30,26 +28,29 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return KeyboardVisibilityBuilder(builder: (context, isKeyboardVisible) {
-      return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppConstant.appSecondaryColor,
-          centerTitle: true,
-          title: Text(
-            "Sign In",
-            style: TextStyle(color: AppConstant.appTextColor),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppConstant.appSecondaryColor,
+        centerTitle: true,
+        title: Text(
+          "Sign In",
+          style: TextStyle(color: AppConstant.appTextColor),
         ),
-        body: Container(
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(16.0),
           child: Column(
             children: [
-              isKeyboardVisible
-                  ? Text("Welcome to our app")
-                  : Column(
-                      children: [
-                        Lottie.asset('assets/images/splash-icon.json'),
-                      ],
-                    ),
+              KeyboardVisibilityBuilder(builder: (context, isKeyboardVisible) {
+                return isKeyboardVisible
+                    ? Text("Welcome to our app")
+                    : Column(
+                  children: [
+                    Lottie.asset('assets/images/splash-icon.json'),
+                  ],
+                );
+              }),
               SizedBox(
                 height: Get.height / 20,
               ),
@@ -78,30 +79,31 @@ class _SignInScreenState extends State<SignInScreen> {
                 width: Get.width,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
-                    child: Obx(
-                          () => TextFormField(
-                        controller: userPassword,
-                        obscureText: signInController.isPasswordVisible.value,
-                        cursorColor: AppConstant.appSecondaryColor,
-                        keyboardType: TextInputType.visiblePassword,
-                        decoration: InputDecoration(
-                          hintText: "Password",
-                          prefixIcon: Icon(Icons.password),
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              signInController.isPasswordVisible.toggle();
-                            },
-                            child: signInController.isPasswordVisible.value
-                                ? Icon(Icons.visibility_off)
-                                : Icon(Icons.visibility),
-                          ),
-                          contentPadding: EdgeInsets.only(top: 2.0, left: 8.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
+                  child: Obx(
+                        () => TextFormField(
+                      controller: userPassword,
+                      obscureText: signInController.isPasswordVisible.value,
+                      cursorColor: AppConstant.appSecondaryColor,
+                      keyboardType: TextInputType.visiblePassword,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        prefixIcon: Icon(Icons.password),
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            signInController.isPasswordVisible.toggle();
+                          },
+                          child: signInController.isPasswordVisible.value
+                              ? Icon(Icons.visibility_off)
+                              : Icon(Icons.visibility),
+                        ),
+                        contentPadding: EdgeInsets.only(top: 2.0, left: 8.0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10.0),
@@ -147,19 +149,18 @@ class _SignInScreenState extends State<SignInScreen> {
                           colorText: AppConstant.appTextColor,
                         );
                       } else {
-                        UserCredential? userCredential = await signInController
-                            .signInMethod(email, password);
+                        UserCredential? userCredential =
+                        await signInController.signInMethod(email, password);
 
                         var userData = await getUserDataController
                             .getUserData(userCredential!.user!.uid);
 
                         if (userCredential != null) {
                           if (userCredential.user!.emailVerified) {
-                            //
                             if (userData[0]['isAdmin'] == true) {
                               Get.snackbar(
                                 "Success Admin Login",
-                                "login Successfully!",
+                                "Login Successfully!",
                                 snackPosition: SnackPosition.BOTTOM,
                                 backgroundColor: AppConstant.appSecondaryColor,
                                 colorText: AppConstant.appTextColor,
@@ -169,7 +170,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               Get.offAll(() => MainScreen());
                               Get.snackbar(
                                 "Success User Login",
-                                "login Successfully!",
+                                "Login Successfully!",
                                 snackPosition: SnackPosition.BOTTOM,
                                 backgroundColor: AppConstant.appSecondaryColor,
                                 colorText: AppConstant.appTextColor,
@@ -222,7 +223,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ],
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }
