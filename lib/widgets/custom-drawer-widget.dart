@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, no_leading_underscores_for_local_identifiers
 
+import 'package:e_comm/screens/user-panel/all-orders-screen.dart';
 import 'package:e_comm/utils/app-constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               child: ListTile(
                 titleAlignment: ListTileTitleAlignment.center,
                 title: Text(
-                  "Test",
+                  "Waris",
                   style: TextStyle(color: AppConstant.appTextColor),
                 ),
                 subtitle: Text(
@@ -47,7 +48,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   radius: 22.0,
                   backgroundColor: AppConstant.appMainColor,
                   child: Text(
-                    "T",
+                    "W",
                     style: TextStyle(color: AppConstant.appTextColor),
                   ),
                 ),
@@ -111,6 +112,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   Icons.arrow_forward,
                   color: AppConstant.appTextColor,
                 ),
+                onTap: () {
+                  Get.back();
+                  Get.to(() => AllOrdersScreen());
+                },
               ),
             ),
             Padding(
@@ -158,7 +163,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             ),
           ],
         ),
-        backgroundColor: AppConstant.appSecondaryColor,
+        backgroundColor: AppConstant.appScendoryColor,
       ),
     );
   }
