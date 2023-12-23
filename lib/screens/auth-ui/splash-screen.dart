@@ -3,7 +3,6 @@
 import 'dart:async';
 
 import 'package:e_comm/controllers/get-user-data-controller.dart';
-import 'package:e_comm/screens/admin-panel/admin-main-screen.dart';
 import 'package:e_comm/screens/auth-ui/welcome-screen.dart';
 import 'package:e_comm/screens/user-panel/main-screen.dart';
 import 'package:e_comm/utils/app-constant.dart';
@@ -34,12 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
       final GetUserDataController getUserDataController =
       Get.put(GetUserDataController());
       var userData = await getUserDataController.getUserData(user!.uid);
-
-      if (userData[0]['isAdmin'] == true) {
-        Get.offAll(() => AdminMainScreen());
-      } else {
-        Get.offAll(() => MainScreen());
-      }
     } else {
       Get.to(() => WelcomeScreen());
     }

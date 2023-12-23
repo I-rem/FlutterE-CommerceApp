@@ -1,5 +1,4 @@
 import 'package:e_comm/controllers/sign-in-controller.dart';
-import 'package:e_comm/screens/admin-panel/admin-main-screen.dart';
 import 'package:e_comm/screens/auth-ui/sign-up-screen.dart';
 import 'package:e_comm/utils/app-constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -157,16 +156,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
                         if (userCredential != null) {
                           if (userCredential.user!.emailVerified) {
-                            if (userData[0]['isAdmin'] == true) {
-                              Get.snackbar(
-                                "Success Admin Login",
-                                "Login Successfully!",
-                                snackPosition: SnackPosition.BOTTOM,
-                                backgroundColor: AppConstant.appSecondaryColor,
-                                colorText: AppConstant.appTextColor,
-                              );
-                              Get.offAll(() => AdminMainScreen());
-                            } else {
                               Get.offAll(() => MainScreen());
                               Get.snackbar(
                                 "Success User Login",
@@ -175,7 +164,6 @@ class _SignInScreenState extends State<SignInScreen> {
                                 backgroundColor: AppConstant.appSecondaryColor,
                                 colorText: AppConstant.appTextColor,
                               );
-                            }
                           } else {
                             Get.snackbar(
                               "Error",
