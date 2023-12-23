@@ -1,39 +1,35 @@
-// ignore_for_file: file_names, prefer_const_constructors, sized_box_for_whitespace, avoid_unnecessary_containers, must_be_immutable
+// ignore_for_file: file_names, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, prefer_interpolation_to_compose_strings
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_comm/models/product-model.dart';
 import 'package:e_comm/utils/app-constant.dart';
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_card/image_card.dart';
-
 import 'product-detail-screen.dart';
 
-class AllSingleCategoryProductsScreen extends StatefulWidget {
-  String categoryId;
-  AllSingleCategoryProductsScreen({super.key, required this.categoryId});
+class AllProductsScreen extends StatelessWidget {
+  const AllProductsScreen({super.key});
 
-  @override
-  State<AllSingleCategoryProductsScreen> createState() =>
-      _AllSingleCategoryProductsScreenState();
-}
-
-class _AllSingleCategoryProductsScreenState
-    extends State<AllSingleCategoryProductsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: AppConstant.appTextColor,
+        ),
         backgroundColor: AppConstant.appMainColor,
-        title: Text('Products'),
+        title: Text(
+          'All Products',
+          style: TextStyle(color: AppConstant.appTextColor),
+        ),
       ),
       body: FutureBuilder(
         future: FirebaseFirestore.instance
             .collection('products')
-            .where('categoryId', isEqualTo: widget.categoryId)
+            .where('isSale', isEqualTo: false)
             .get(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
@@ -52,7 +48,7 @@ class _AllSingleCategoryProductsScreenState
 
           if (snapshot.data!.docs.isEmpty) {
             return Center(
-              child: Text("No category found!"),
+              child: Text("No products found!"),
             );
           }
 
@@ -63,9 +59,9 @@ class _AllSingleCategoryProductsScreenState
               physics: BouncingScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 3,
-                crossAxisSpacing: 3,
-                childAspectRatio: 1.19,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                childAspectRatio: 0.80,
               ),
               itemBuilder: (context, index) {
                 final productData = snapshot.data!.docs[index];
@@ -102,7 +98,7 @@ class _AllSingleCategoryProductsScreenState
                           child: FillImageCard(
                             borderRadius: 20.0,
                             width: Get.width / 2.3,
-                            heightImage: Get.height / 10,
+                            heightImage: Get.height / 6,
                             imageProvider: CachedNetworkImageProvider(
                               productModel.productImages[0],
                             ),
@@ -110,8 +106,12 @@ class _AllSingleCategoryProductsScreenState
                               child: Text(
                                 productModel.productName,
                                 overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
                                 style: TextStyle(fontSize: 12.0),
                               ),
+                            ),
+                            footer: Center(
+                              child: Text("PKR: " + productModel.fullPrice),
                             ),
                           ),
                         ),

@@ -1,39 +1,35 @@
-// ignore_for_file: file_names, prefer_const_constructors, sized_box_for_whitespace, avoid_unnecessary_containers, must_be_immutable
+// ignore_for_file: file_names, prefer_const_constructors, sized_box_for_whitespace, avoid_unnecessary_containers
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_comm/models/product-model.dart';
-import 'package:e_comm/utils/app-constant.dart';
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_card/image_card.dart';
-
+import '../../models/product-model.dart';
+import '../../utils/app-constant.dart';
 import 'product-detail-screen.dart';
 
-class AllSingleCategoryProductsScreen extends StatefulWidget {
-  String categoryId;
-  AllSingleCategoryProductsScreen({super.key, required this.categoryId});
+class AllFlashSaleProductScreen extends StatefulWidget {
+  const AllFlashSaleProductScreen({super.key});
 
   @override
-  State<AllSingleCategoryProductsScreen> createState() =>
-      _AllSingleCategoryProductsScreenState();
+  State<AllFlashSaleProductScreen> createState() =>
+      _AllFlashSaleProductScreenState();
 }
 
-class _AllSingleCategoryProductsScreenState
-    extends State<AllSingleCategoryProductsScreen> {
+class _AllFlashSaleProductScreenState extends State<AllFlashSaleProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppConstant.appMainColor,
-        title: Text('Products'),
+        title: Text("All Flash Sale Products"),
       ),
       body: FutureBuilder(
         future: FirebaseFirestore.instance
             .collection('products')
-            .where('categoryId', isEqualTo: widget.categoryId)
+            .where('isSale', isEqualTo: true)
             .get(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
@@ -52,7 +48,7 @@ class _AllSingleCategoryProductsScreenState
 
           if (snapshot.data!.docs.isEmpty) {
             return Center(
-              child: Text("No category found!"),
+              child: Text("No products found!"),
             );
           }
 
@@ -110,6 +106,7 @@ class _AllSingleCategoryProductsScreenState
                               child: Text(
                                 productModel.productName,
                                 overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
                                 style: TextStyle(fontSize: 12.0),
                               ),
                             ),
@@ -121,6 +118,16 @@ class _AllSingleCategoryProductsScreenState
                 );
               },
             );
+
+            // Container(
+            //   height: Get.height / 5.0,
+            //   child: ListView.builder(
+            //     itemCount: snapshot.data!.docs.length,
+            //     shrinkWrap: true,
+            //     scrollDirection: Axis.horizontal,
+
+            //   ),
+            // );
           }
 
           return Container();
