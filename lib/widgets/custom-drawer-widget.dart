@@ -163,7 +163,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             ),
           ],
         ),
-        backgroundColor: AppConstant.appScendoryColor,
+        backgroundColor: AppConstant.appSecondaryColor,
       ),
     );
   }

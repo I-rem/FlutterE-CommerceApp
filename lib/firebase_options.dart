@@ -23,18 +23,24 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
-              'you can reconfigure this by running the FlutterFire CLI again.',
+          'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
-              'you can reconfigure this by running the FlutterFire CLI again.',
+          'you can reconfigure this by running the FlutterFire CLI again.',
         );
       default:
         throw UnsupportedError(
@@ -44,38 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB5u5sLaSOofjG-5rwi8e_p0NoQFo6ZuPw',
-    appId: '1:55065289851:web:e05203ae430122701beede',
-    messagingSenderId: '55065289851',
-    projectId: 'easyshopping-ce06a',
-    authDomain: 'easyshopping-ce06a.firebaseapp.com',
-    storageBucket: 'easyshopping-ce06a.appspot.com',
-    measurementId: 'G-8M88P4LE0P',
+    apiKey: 'AIzaSyCOvtQTaTcI-3hPw97wLeH8ov3GPkm8--Q',
+    appId: '1:246765796090:web:0fd00e9ebb471a5e6ba743',
+    messagingSenderId: '246765796090',
+    projectId: 'it-shop-c9a79',
+    authDomain: 'it-shop-c9a79.firebaseapp.com',
+    storageBucket: 'it-shop-c9a79.appspot.com',
+    measurementId: 'G-23L555J93E',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCgmn9NAC8y-sl7GPCFzO9Xu4p0ocqpzro',
-    appId: '1:55065289851:android:23db8df47c5bdc8f1beede',
-    messagingSenderId: '55065289851',
-    projectId: 'easyshopping-ce06a',
-    storageBucket: 'easyshopping-ce06a.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCW2p3OscjoAAUcDhBvX6sib79TrAUOhQ0',
-    appId: '1:55065289851:ios:1dc678310d94ba1e1beede',
-    messagingSenderId: '55065289851',
-    projectId: 'easyshopping-ce06a',
-    storageBucket: 'easyshopping-ce06a.appspot.com',
-    iosBundleId: 'com.example.eComm',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCW2p3OscjoAAUcDhBvX6sib79TrAUOhQ0',
-    appId: '1:55065289851:ios:59e22be67892ce811beede',
-    messagingSenderId: '55065289851',
-    projectId: 'easyshopping-ce06a',
-    storageBucket: 'easyshopping-ce06a.appspot.com',
-    iosBundleId: 'com.example.eComm.RunnerTests',
+    apiKey: 'AIzaSyAyu0A1a8_AZ2Dq72UK7tjfXj0LnfSuFvo',
+    appId: '1:246765796090:android:4b016c5ac5cb7fed6ba743',
+    messagingSenderId: '246765796090',
+    projectId: 'it-shop-c9a79',
+    storageBucket: 'it-shop-c9a79.appspot.com',
   );
 }

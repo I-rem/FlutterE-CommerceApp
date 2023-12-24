@@ -2,6 +2,7 @@
 
 import 'package:e_comm/screens/user-panel/all-flash-sale-products.dart';
 import 'package:e_comm/screens/user-panel/all-products-screen.dart';
+import 'package:e_comm/screens/user-panel/cart-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,6 @@ import '../../widgets/custom-drawer-widget.dart';
 import '../../widgets/flash-sale-widget.dart';
 import '../../widgets/heading-widget.dart';
 import 'all-categories-screen.dart';
-import 'package:e_comm/screens/user-panel/cart-screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});

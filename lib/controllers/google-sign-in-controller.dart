@@ -15,15 +15,15 @@ class GoogleSignInController extends GetxController {
 
   Future<void> signInWithGoogle() async {
     final GetDeviceTokenController getDeviceTokenController =
-    Get.put(GetDeviceTokenController());
+        Get.put(GetDeviceTokenController());
     try {
       final GoogleSignInAccount? googleSignInAccount =
-      await googleSignIn.signIn();
+          await googleSignIn.signIn();
 
       if (googleSignInAccount != null) {
         EasyLoading.show(status: "Please wait..");
         final GoogleSignInAuthentication googleSignInAuthentication =
-        await googleSignInAccount.authentication;
+            await googleSignInAccount.authentication;
 
         final AuthCredential credential = GoogleAuthProvider.credential(
           accessToken: googleSignInAuthentication.accessToken,
@@ -31,7 +31,7 @@ class GoogleSignInController extends GetxController {
         );
 
         final UserCredential userCredential =
-        await _auth.signInWithCredential(credential);
+            await _auth.signInWithCredential(credential);
 
         final User? user = userCredential.user;
 

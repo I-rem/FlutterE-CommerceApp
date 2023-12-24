@@ -7,28 +7,28 @@ import 'package:get/get.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Ensure that Flutter bindings are set up before any other operation
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget { // Immutable
-  const MyApp({super.key}); // calling the constructor of the superclass passing the key as parameter
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) { // BuildContext holds information about the location of a widget within the widget tree
+  Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Our Demo',
+      title: 'Ecommerce Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigoAccent),
         useMaterial3: true,
       ),
       home: const SplashScreen(),
-      builder: EasyLoading.init(), // for loading animations, using builder property to make sure it is initalized before the main app starts running
+      builder: EasyLoading.init(),
     );
   }
 }
