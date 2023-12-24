@@ -190,7 +190,7 @@ class _CartScreenState extends State<CartScreen> {
           children: [
             Obx(
               () => Text(
-                " Total ${productPriceController.totalPrice.value.toStringAsFixed(1)} : PKR",
+                " Total ${productPriceController.totalPrice.value.toStringAsFixed(1)} : ",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),

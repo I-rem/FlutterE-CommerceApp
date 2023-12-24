@@ -115,10 +115,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             widget.productModel.isSale == true &&
                                 widget.productModel.salePrice != ''
                                 ? Text(
-                              "PKR: " + widget.productModel.salePrice,
+                              "Price: " + widget.productModel.salePrice,
                             )
                                 : Text(
-                              "PKR: " + widget.productModel.fullPrice,
+                              "Price: " + widget.productModel.fullPrice,
                             ),
                           ],
                         ),
@@ -154,16 +154,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               decoration: BoxDecoration(
                                 color: AppConstant.appSecondaryColor,
                                 borderRadius: BorderRadius.circular(20.0),
-                              ),
-                              child: TextButton(
-                                child: Text(
-                                  "WhatsApp",
-                                  style: TextStyle(
-                                      color: AppConstant.appTextColor),
-                                ),
-                                onPressed: () {
-                                  // Get.to(() => SignInScreen());
-                                },
                               ),
                             ),
                           ),
@@ -205,7 +195,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     );
   }
 
-  //checkl prooduct exist or not
+  //check product exist or not
 
   Future<void> checkProductExistence({
     required String uId,

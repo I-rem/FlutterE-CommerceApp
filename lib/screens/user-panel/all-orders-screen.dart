@@ -110,7 +110,7 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                                   style: TextStyle(color: Colors.green),
                                 )
                               : Text(
-                                  "Deliverd",
+                                  "Delivered",
                                   style: TextStyle(color: Colors.red),
                                 )
                         ],
