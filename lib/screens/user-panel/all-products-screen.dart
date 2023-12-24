@@ -111,7 +111,7 @@ class AllProductsScreen extends StatelessWidget {
                               ),
                             ),
                             footer: Center(
-                              child: Text("PKR: " + productModel.fullPrice),
+                              child: Text(productModel.fullPrice),
                             ),
                           ),
                         ),

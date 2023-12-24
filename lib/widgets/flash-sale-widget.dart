@@ -96,7 +96,7 @@ class FlashSaleWidget extends StatelessWidget {
                             footer: Row(
                               children: [
                                 Text(
-                                  "Rs ${productModel.salePrice}",
+                                  " ${productModel.salePrice}",
                                   style: TextStyle(fontSize: 10.0),
                                 ),
                                 SizedBox(
