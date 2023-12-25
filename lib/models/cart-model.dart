@@ -1,4 +1,19 @@
+// ignore_for_file: file_names
 
+class CartModel {
+  final String productId;
+  final String categoryId;
+  final String productName;
+  final String categoryName;
+  final String salePrice;
+  final String fullPrice;
+  final List productImages;
+  final String deliveryTime;
+  final bool isSale;
+  final String productDescription;
+  final dynamic createdAt;
+  final dynamic updatedAt;
+  final int productQuantity;
   final double productTotalPrice;
 
   CartModel({
