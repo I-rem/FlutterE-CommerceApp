@@ -21,7 +21,7 @@ The E-Commerce Flutter App is designed to provide users with a convenient shoppi
 
 - Browse products by category
 - View flash sale products
-- Add products to the shopping cart
+gi- Add products to the shopping cart
 - View and manage the shopping cart
 - Place orders and check order status
 
@@ -62,9 +62,7 @@ If you'd like to contribute to this project, please follow the guidelines in the
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-css
-
+}}
 
 Please replace the placeholder URLs and text as needed. If you have specific licenses, add the appropriate information to the "License" section. Also, make sure to create a [CONTRIBUTING.md](CONTRIBUTING.md) file if you have specific guidelines for contributors.
 
@@ -72,3 +70,4 @@ Please replace the placeholder URLs and text as needed. If you have specific lic
 
 
 
+.....
