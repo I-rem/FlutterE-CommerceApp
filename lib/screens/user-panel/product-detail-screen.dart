@@ -147,16 +147,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Material(
-                            child: Container(
-                              width: Get.width / 3.0,
-                              height: Get.height / 16,
-                              decoration: BoxDecoration(
-                                color: AppConstant.appSecondaryColor,
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                          ),
                           SizedBox(
                             width: 5.0,
                           ),
