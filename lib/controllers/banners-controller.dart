@@ -1,4 +1,3 @@
-// ignore_for_file: camel_case_types, file_names, unnecessary_overrides, unused_local_variable, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
