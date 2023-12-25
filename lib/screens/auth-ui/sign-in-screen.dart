@@ -40,16 +40,17 @@ class _SignInScreenState extends State<SignInScreen> {
             style: TextStyle(color: AppConstant.appTextColor),
           ),
         ),
-        body: Container(
-          child: Column(
-            children: [
-              isKeyboardVisible
-                  ? Text("Welcome to my app")
-                  : Column(
-                      children: [
-                        Lottie.asset('assets/images/splash-icon.json'),
-                      ],
-                    ),
+      body: SingleChildScrollView(
+      child: Container(
+      child: Column(
+      children: [
+      isKeyboardVisible
+      ? Text("Welcome to my app")
+          : Column(
+      children: [
+      Lottie.asset('assets/images/splash-icon.json'),
+      ],
+      ),
               SizedBox(
                 height: Get.height / 20,
               ),
@@ -220,9 +221,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 ],
               )
             ],
+      ),
           ),
         ),
       );
     });
   }
+}
+
 }
